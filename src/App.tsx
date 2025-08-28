@@ -61,6 +61,14 @@ function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setIsMenuOpen(false); // Close mobile menu after navigation
+    }
+  };
+
   // Scroll to top functionality
   useEffect(() => {
     const handleScroll = () => {
